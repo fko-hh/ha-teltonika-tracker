@@ -1,5 +1,7 @@
 # Teltonika Telematics Tracker 
-Home Assistant Integration of Teltonika Telematics Tracker (more info)[https://www.teltonika-gps.com/] using UDP and Codec8
+Home Assistant Integration of Teltonika Telematics Tracker [more info](https://www.teltonika-gps.com/) using UDP and Codec8.
+
+## Configuration
 
 ## Trademark Notice
 Teltonika and the Teltonika logo are trademarks of Teltonika.
