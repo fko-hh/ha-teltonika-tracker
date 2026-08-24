@@ -1,0 +1,21 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "title": "Teltonika Telematics Tracker",
+                "description": "Configure the Teltonika Telematics Tracker integration by providing the port to listen for incoming data. The format of the datagram must be Codec 8.",
+                "data": {
+                    "port": "Port"
+                }
+            }
+        }
+    }
+}

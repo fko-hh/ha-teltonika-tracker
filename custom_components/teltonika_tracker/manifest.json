@@ -1,0 +1,19 @@
+{
+  "domain": "teltonika_tracker",
+  "name": "Teltonika Telematics Tracker",
+  "codeowners": [
+    "@fko-hh"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/fko-hh/ha-teltonika-tracker",
+  "issue_tracker": "https://github.com/fko-hh/ha-teltonika-tracker/issues",
+  "homekit": {},
+  "integration_type": "hub",
+  "iot_class": "local_push",
+  "quality_scale": "bronze",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "version": "0.1.0"
+}
