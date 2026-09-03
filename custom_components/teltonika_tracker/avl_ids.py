@@ -28,21 +28,39 @@ AVL_DEFINITIONS: dict[int, AVLDefinition] = {
     # Digital / state values
     1: AVLDefinition(
         name="Digital Input 1",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     21: AVLDefinition(
         name="GSM Signal",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     69: AVLDefinition(
         name="GNSS Status",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     200: AVLDefinition(
         name="Sleep Mode",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     239: AVLDefinition(
         name="Ignition",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     240: AVLDefinition(
         name="Movement",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
 
     # Voltage / current
@@ -96,6 +114,30 @@ AVL_DEFINITIONS: dict[int, AVLDefinition] = {
         name="Battery Level",
         unit=PERCENTAGE,
         device_class=SensorDeviceClass.BATTERY,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    114: AVLDefinition(
+        name="Fuel Level",
+        unit=PERCENTAGE,
+        device_class=SensorDeviceClass.FUEL,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    181: AVLDefinition(
+        name="GNSS PDOP",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    182: AVLDefinition(
+        name="GNSS HDOP",
+        unit=None,
+        device_class=None,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    241: AVLDefinition(
+        name="GNSS VDOP",
+        unit=None,
+        device_class=None,
         state_class=SensorStateClass.MEASUREMENT,
     ),
 }
