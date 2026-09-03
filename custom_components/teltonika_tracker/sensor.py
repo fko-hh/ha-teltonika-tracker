@@ -11,6 +11,7 @@ from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
 
+from .avl_ids import get_avl_definition
 from .const import DOMAIN
 
 
@@ -137,16 +138,31 @@ class TeltonikaIOSensor(SensorEntity):
         self.tracker = tracker
         self.io_id = io_id
 
-        self._attr_unique_id = f"{tracker.imei}_io_{io_id}"
+        self.definition = get_avl_definition(io_id)
 
-        self._attr_name = self.tracker.io_elements[io_id].name()
+        self._attr_unique_id = f"{tracker.imei}_io_{io_id}"
+        self._attr_name = self.definition.name
+
+        self._attr_device_class = self.definition.device_class
+        self._attr_state_class = self.definition.state_class
+        self._attr_native_unit_of_measurement = self.definition.unit
+
+        if self.definition.precision is not None:
+            self._attr_native_value_precision = self.definition.precision
 
     @property
     def native_value(
         self,
     ) -> StateType | str | int | float | date | datetime | Decimal | None:
         """Return the value of the IO element."""
-        return self.tracker.io_elements.get(self.io_id).value
+        values = self.tracker.io_elements.get(self.io_id).value
+
+        if not values:
+            return None
+
+        return values * self.definition.multiplier if self.definition.multiplier != 1.0 else values
+
+
 
     @property
     def device_info(self) -> DeviceInfo | None:

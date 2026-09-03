@@ -4,43 +4,15 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 import struct
 
-AVL_ID_NAMES: dict[int, str] = {
-    1: "DIN1",
-    2: "DIN2",
-    3: "DIN3",
-    9: "Analog Input 1",
-    10: "SD Status",
-    16: "Total Odometer",
-    17: "Axis X",
-    18: "Axis Y",
-    19: "Axis Z",
-    21: "GSM Signal",
-    24: "Speed",
-    50: "Dallas Temperature 1",
-    51: "Dallas Temperature 2",
-    52: "Dallas Temperature 3",
-    53: "Dallas Temperature 4",
-    66: "External Voltage",
-    67: "Battery Voltage",
-    68: "Battery Current",
-    69: "GNSS Status",
-    78: "iButton",
-    181: "GNSS PDOP",
-    182: "GNSS HDOP",
-    200: "Sleep Mode",
-    239: "Ignition",
-    240: "Movement",
-    241: "Active GSM Operator",
-    249: "Jamming",
-}
+from .avl_ids import AVL_DEFINITIONS
 
 
 def get_avl_name(avl_id: int) -> str:
     """Return human-readable AVL IO element name."""
-    return AVL_ID_NAMES.get(
+    return AVL_DEFINITIONS.get(
         avl_id,
-        f"Unknown AVL ID {avl_id}",
-    )
+        None,
+    ).name if avl_id in AVL_DEFINITIONS else f"Unknown AVL ID {avl_id}"
 
 
 class Codec8Error(Exception):
