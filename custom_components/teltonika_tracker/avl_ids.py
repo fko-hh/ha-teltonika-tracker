@@ -119,7 +119,7 @@ AVL_DEFINITIONS: dict[int, AVLDefinition] = {
     114: AVLDefinition(
         name="Fuel Level",
         unit=PERCENTAGE,
-        device_class=SensorDeviceClass.FUEL,
+        device_class=None,
         state_class=SensorStateClass.MEASUREMENT,
     ),
     181: AVLDefinition(
