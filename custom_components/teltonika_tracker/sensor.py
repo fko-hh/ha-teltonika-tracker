@@ -148,7 +148,7 @@ class TeltonikaIOSensor(SensorEntity):
         self._attr_native_unit_of_measurement = self.definition.unit
 
         if self.definition.precision is not None:
-            self._attr_native_value_precision = self.definition.precision
+            self._attr_suggested_display_precision = self.definition.precision
 
     @property
     def native_value(
