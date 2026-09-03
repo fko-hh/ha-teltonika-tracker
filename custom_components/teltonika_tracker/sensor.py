@@ -157,7 +157,7 @@ class TeltonikaIOSensor(SensorEntity):
         """Return the value of the IO element."""
         values = self.tracker.io_elements.get(self.io_id).value
 
-        if not values:
+        if values is None:
             return None
 
         return values * self.definition.multiplier if self.definition.multiplier != 1.0 else values
