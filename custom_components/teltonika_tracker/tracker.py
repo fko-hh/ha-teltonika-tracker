@@ -42,7 +42,8 @@ class Tracker:
         self.angle = record.gps.angle
         self.satellites = record.gps.satellites
 
-        self.io_elements = record.io_elements
+        for key, value in record.io_elements.items():
+            self.io_elements[key] = value
 
     def to_dict(self) -> dict:
         """Return a dictionary representation of the tracker."""
